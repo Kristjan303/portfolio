@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="intro.css">
+    <meta charset="UTF-8">
+    <title>K-EP</title>
+  <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/783382789037752372/1119293468355866705/light_version_of_my_super_duper_cool_logo.png">
+</head>
+<body>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVW|/-";
+    const intervals = [];
+    const h1Elements = document.querySelectorAll("div h2");
+
+    h1Elements.forEach((h2) => {
+      let iteration = 0;
+      clearInterval(intervals[h2.dataset.value]);
+
+      intervals[h2.dataset.value] = setInterval(() => {
+        h2.innerText = h2.innerText
+                .split("")
+                .map((letter, index) => {
+                  if (index < iteration) {
+                    return h2.dataset.value[index];
+                  }
+                  return letters[Math.floor(Math.random() * 26)];
+                })
+                .join("");
+
+        if (iteration >= h2.dataset.value.length) {
+          clearInterval(intervals[h2.dataset.value]);
+        }
+
+        iteration += 1 / 3;
+      }, 50);
+    });
+  });
+  setTimeout(function() {
+    document.body.classList.add('fade-out');
+    setTimeout(function() {
+      window.location.href = 'home.html';
+    }, 1000); // Delay the redirect after the fade-out animation duration
+  }, 5000);
+</script>
+  <div class="container">
+    <div class="intro">
+      <h2 data-value="Hello World!" >Hello World!</h2>
+    </div>
+    <main>
+      <div class="content">
+        <p>Welcome</p>
+        <p>Welcome</p>
+        <p>Welcome</p>
+        <p>Welcome</p>
+        <p>Welcome</p>
+        <p>Welcome</p>
+        <p>Welcome</p>
+        <p>Welcome</p>
+        <p>Welcome</p>
+        <p>Welcome</p>
+        <p>Welcome</p>
+        <p>Welcome</p>
+        <p>Welcome</p>
+        <p>Welcome</p>
+        <p>Welcome</p>
+        <p>Welcome</p>
+        <p>Welcome</p>
+        <p>Welcome</p>
+      </div>
+    </main>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>
